@@ -29,6 +29,9 @@ namespace adventofcode
             {
                 try
                 {
+                    if (!Directory.Exists(Path.GetDirectoryName(path)))
+                        Directory.CreateDirectory(Path.GetDirectoryName(path));
+                    
                     using (WebClient client = new WebClient())
                     {
                         

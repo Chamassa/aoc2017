@@ -4,7 +4,11 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="input" />
-    <File Include="sessionkey" />
+    <Folder Include="input">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Folder>
+    <Content Include="sessionkey">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 </Project>
