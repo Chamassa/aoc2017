@@ -32,7 +32,7 @@ namespace adventofcode
             {
                 hasPuzzle = true;
                 
-                Console.WriteLine("Which puzzle to run? (1;2;both)");
+                Console.WriteLine("Which puzzle to run? (1;2;both;test)");
                 input = Console.ReadLine().Trim().ToLower();
                 switch (input)
                 {
@@ -41,6 +41,9 @@ namespace adventofcode
                         break;
                     case "2":
                         RunPuzzle(day, 2);
+                        break;
+                    case "test":
+                        RunPuzzle(day, -1);
                         break;
                     case "both":
                         RunPuzzle(day);
@@ -69,6 +72,9 @@ namespace adventofcode
                             break;
                         case 2:
                             dayObj.Puzzle2();
+                            break;
+                        case -1:
+                            dayObj.Test1();
                             break;
                         case 0:
                         default:

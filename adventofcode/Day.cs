@@ -57,7 +57,7 @@ namespace adventofcode
 
         public abstract void Puzzle1();
         public abstract void Puzzle2();
-
+        public abstract void Test1();
 
         protected string GetInputClean()
         {

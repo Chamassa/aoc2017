@@ -39,5 +39,10 @@ namespace adventofcode.Days
             }
             Console.WriteLine($"Part 1: {answer}");
         }
+
+        public override void Test1()
+        {
+            
+        }
     }
 }

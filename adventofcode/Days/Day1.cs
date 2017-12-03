@@ -25,5 +25,10 @@ namespace adventofcode.Days
             string input = GetInputClean();
             return input.Where((chr, idx) => chr == input[indexSelector(idx, input)]).Sum(chr => int.Parse(chr.ToString()));
         }
+
+        public override void Test1()
+        {
+            
+        }
     }
 }
