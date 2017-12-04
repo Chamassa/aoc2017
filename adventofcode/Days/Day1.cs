@@ -28,7 +28,10 @@ namespace adventofcode.Days
 
         public override void Test1()
         {
-            
+        }
+
+        public override void Test2()
+        {
         }
     }
 }

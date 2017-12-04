@@ -23,7 +23,10 @@ namespace adventofcode.Days
             Input = 1024;
             Puzzle1();
             Input = OriginalInput;
+        }
 
+        public override void Test2()
+        {
         }
 
 
