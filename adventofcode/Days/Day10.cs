@@ -6,7 +6,9 @@ namespace adventofcode.Days
 {
     public class Day10 : Day
     {
-        public Day10() : base(10) {}
+        public Day10() : base(10)
+        {
+        }
 
         public override void Puzzle1()
         {
@@ -15,29 +17,15 @@ namespace adventofcode.Days
             int answer = list[0] * list[1];
             Console.WriteLine($"Part 1: {answer}");
         }
-        
+
 
         public override void Puzzle2()
         {
-            int[] input = Encoding.ASCII.GetBytes(GetInputClean().Trim()).Select(b => (int) b).ToArray();
-            input = input.Concat(new int[] {17, 31, 73, 47, 23}).ToArray();
-            int[] list = Puzzle(input, 64);
-            int[] output = new int[16];
-            for (int i = 0; i < 16; i++)
-            {
-                int xor = list[i * 16];
-                for (int j = 1; j < 16; j++)
-                {
-                    xor = xor ^ list[(i * 16) + j];
-                }
-                output[i] = xor;
-            }
-            
-            string answer = string.Join("",output.Select(i => i.ToString("X2")));
+            string answer = KnotHash(GetInputClean());
             Console.WriteLine($"Part 2: {answer}");
         }
 
-        public int[] Puzzle(int[] input, int iterations)
+        public static int[] Puzzle(int[] input, int iterations)
         {
             int[] list = Enumerable.Range(0, 256).ToArray();
             int skipSize = 0;
@@ -67,6 +55,25 @@ namespace adventofcode.Days
 
         public override void Test2()
         {
+        }
+
+        public static string KnotHash(string inputStr)
+        {
+            int[] input = Encoding.ASCII.GetBytes(inputStr.Trim()).Select(b => (int) b).ToArray();
+            input = input.Concat(new int[] {17, 31, 73, 47, 23}).ToArray();
+            int[] list = Puzzle(input, 64);
+            int[] output = new int[16];
+            for (int i = 0; i < 16; i++)
+            {
+                int xor = list[i * 16];
+                for (int j = 1; j < 16; j++)
+                {
+                    xor = xor ^ list[(i * 16) + j];
+                }
+                output[i] = xor;
+            }
+
+            return string.Join("", output.Select(i => i.ToString("X2")));
         }
     }
 }
